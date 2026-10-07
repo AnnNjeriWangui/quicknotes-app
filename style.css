@@ -1,0 +1,109 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.5;
+  color: #1f2933;
+  background: #eef2f3;
+}
+
+header {
+  background: #0f4c5c;
+  color: #fff;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+header h1 { margin: 0; }
+header p { margin: 0.25rem 0 0; opacity: 0.85; }
+
+main {
+  max-width: 700px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+section h2 { margin-top: 0; }
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  color: #52606d;
+  font-size: 0.9rem;
+}
+
+/* Flexbox form */
+#note-form { display: flex; gap: 0.5rem; align-items: center; }
+#note-form label {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+#note-input { flex: 1; }
+
+input, select, button {
+  font: inherit;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #b8c4ce;
+  border-radius: 6px;
+}
+input:focus-visible, select:focus-visible, button:focus-visible {
+  outline: 2px solid #0f4c5c; outline-offset: 2px;
+}
+#search-input { width: 100%; }
+
+button {
+  background: #0f4c5c;
+  color: #fff;
+  border-color: #0f4c5c;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+button:hover { background: #0a3844; }
+
+#error-message { color: #c0392b; font-weight: 600; min-height: 1.5em; margin: 0.5rem 0 0; }
+#note-count { color: #52606d; }
+
+/* Note cards */
+#notes-list { list-style: none; padding: 0; margin: 0; }
+
+.note {
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  border: 1px solid #d9e2ec;
+  border-left: 6px solid #999;
+  border-radius: 8px;
+  background: #fafcfd;
+}
+.note p { margin: 0 0 0.4rem; overflow-wrap: anywhere; }
+.note-meta { display: flex; align-items: center; gap: 0.75rem; font-size: 0.85rem; color: #52606d; }
+.note-meta .delete-btn { margin-left: auto; padding: 0.25rem 0.6rem; background: #fff; color: #8b1e1e; border-color: #8b1e1e; }
+.note-meta .delete-btn:hover { background: #8b1e1e; color: #fff; }
+.category-label { font-weight: 600; }
+
+/* One style per category */
+.category-personal { border-left-color: #14919b; }
+.category-work     { border-left-color: #8b1e1e; }
+.category-study    { border-left-color: #2563c9; }
+.category-personal .category-label { color: #14919b; }
+.category-work .category-label     { color: #8b1e1e; }
+.category-study .category-label    { color: #2563c9; }
+
+.empty-message { color: #52606d; font-style: italic; }
+
+/* Clear all button */
+#clear-all { margin-top: 0.5rem; background: #8b1e1e; border-color: #8b1e1e; }
+#clear-all:hover { background: #661515; }
+
+/* Small screens */
+@media (max-width: 600px) {
+  #note-form { flex-direction: column; align-items: stretch; }
+  .note-meta { flex-wrap: wrap; }
+  section { padding: 1rem; }
+}
